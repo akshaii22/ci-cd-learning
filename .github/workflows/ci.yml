@@ -31,4 +31,11 @@ jobs:
            TEXT_MESSAGE: $ {{secrets.TEXT_MESSAGE}}
         run: npm test
 
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+         name: test-report
+         path: junit.xml 
+
       
